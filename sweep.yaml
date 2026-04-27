@@ -1,0 +1,50 @@
+# W&B Sweep config — cerca d'hiperparàmetres per al CNN de QuickDraw.
+# Llançament:
+#   wandb sweep sweep.yaml          # retorna un SWEEP_ID
+#   wandb agent <ENTITY>/<PROJECT>/<SWEEP_ID>
+# Pots córrer agents en paral·lel a diferents VMs (cada agent agafa una run).
+
+program: train.py
+method: bayes               # bayes | random | grid
+metric:
+  name: val/acc
+  goal: maximize
+
+# Paràmetres fixos (no es busquen)
+command:
+  - ${env}
+  - python
+  - ${program}
+  - --epochs=8
+  - --num_workers=6
+  - --max_items_per_class=2500
+  - --wandb_project=quickdraw-xn-g07
+  - ${args}
+
+parameters:
+  lr:
+    distribution: log_uniform_values
+    min: 1.0e-4
+    max: 5.0e-3
+  batch_size:
+    values: [64, 128, 256]
+  dropout:
+    values: [0.2, 0.3, 0.4, 0.5]
+  fc_size:
+    values: [256, 512, 1024]
+  optimizer:
+    values: ["adam", "sgd"]
+  weight_decay:
+    values: [0.0, 1.0e-5, 1.0e-4]
+  image_size:
+    values: [64, 96]
+  line_width:
+    values: [3, 5, 7]
+  lr_gamma:
+    values: [0.3, 0.5, 0.7]
+
+# Atura runs poc prometedores aviat
+early_terminate:
+  type: hyperband
+  min_iter: 2
+  eta: 3

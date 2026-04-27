@@ -1,0 +1,41 @@
+# --- Python ---
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+.env
+
+# --- IDE / OS ---
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# --- Dades (NO pujar el dataset de 22GB!) ---
+simplified_dataset/
+*.ndjson
+*.rar
+*.zip
+*.tar
+*.tar.gz
+
+# --- Models / outputs ---
+checkpoints/
+*.pth
+*.pt
+*.onnx
+
+# --- Logs ---
+wandb/
+runs/
+logs/
+*.log
+
+# --- Notebooks ---
+.ipynb_checkpoints/
+
+# --- Secrets ---
+*.netrc
+secrets.yaml
+.wandb_key

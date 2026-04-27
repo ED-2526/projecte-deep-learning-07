@@ -1,0 +1,52 @@
+# Configuració de les diferents màquines virtuals
+Host VM_IA_02
+  HostName 10.12.7.2
+
+Host VM_IA_03
+  HostName 10.12.7.3
+
+Host VM_IA_05
+  HostName 10.12.7.5
+
+Host VM_IA_06
+  HostName 10.12.7.6
+
+Host VM_IA_07
+  HostName 10.12.7.7
+
+Host VM_IA_08
+  HostName 10.12.7.8
+
+Host VM_IA_09
+  HostName 10.12.7.9
+
+Host VM_IA_10
+  HostName 10.12.7.10
+
+Host VM_IA_11
+  HostName 10.12.7.11
+
+Host VM_IA_12
+  HostName 10.12.7.12
+
+Host VM_IA_13
+  HostName 10.12.7.13
+
+Host VM_IA_14
+  HostName 10.12.7.14
+
+Host VM_IA_15
+  HostName 10.12.7.15
+
+Host VM_IA_16
+  HostName 10.12.7.16
+
+Host VM_IA_17
+  HostName 10.12.7.17
+
+Host VM_IA_18
+  HostName 10.12.7.18
+
+Host VM_IA_*
+    User your_account
+    ProxyJump jumper@bgjmpvgpu.uab.cat
